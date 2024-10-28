@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="author" content="Eddib mohamed +213776777630/+213560072746">
+    <title>URCACLS/CENTRE</title>
+    <style>
+        body {
+            background: url('https://source.unsplash.com/1600x900/?nature,landscape') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        h2, h3 {
+            margin: 10px 0;
+        }
+        h2 {
+            font-size: 24px;
+        }
+        h3 {
+            font-size: 20px;
+        }
+        .block {
+            margin-top: 20px;
+        }
+        input[type='input'], input[type='password'] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.3);
+            color: #fff;
+            font-size: 16px;
+        }
+        input:focus {
+            border-color: #A6F0C6;
+            outline: none;
+        }
+        button {
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            background-color: #A6F0C6;
+            color: #000;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #8CC7A6;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>UNION RÉGIONALE DES COOPÉRATIVES AGRICOLES</h2>
+        <h3>FILIÉRE CÉRÉALES LÉGUMES SECS DU CENTRE</h3>
+        <h2>U.R.C.A.C.L.S / CENTRE</h2>
+
+        <div class="block">
+            <h2 style="font-size: 20px;">Connexion</h2>
+            <div class="content">
+                <form method="POST" onsubmit="return validateLogin(event)">
+                    <p>Nom d'utilisateur<br>
+                    <input type="input" name="login" class="text" placeholder="Utilisateur" autofocus required></p>
+                    <p>Mot de passe<br>
+                    <input type="password" name="password" placeholder="Mot de passe" class="password" required></p>
+                    <p><button type="submit">Identifier</button></p>
+                </form>
+            </div>
+        </div>
+
+        <footer>
+            <p>Copyright © 2022 <b>U.R.C.A.C.L.S.C</b>. Tous droits réservés. (Eddib //Tél: 0560072756)</p>
+        </footer>
+    </div>
+
+    <script>
+        function validateLogin(event) {
+            event.preventDefault(); // منع الإرسال الافتراضي للنموذج
+            const username = document.querySelector('input[name="login"]').value;
+            const password = document.querySelector('input[name="password"]').value;
+
+            if (username === 'rekab' && password === 'abdelkader12@') {
+                alert('Connexion réussie!');
+                // يمكنك هنا إعادة توجيه المستخدم إلى صفحة أخرى
+                // window.location.href = 'next_page.html'; // مثال
+            } else {
+                alert('Nom d\'utilisateur ou mot de passe incorrect.');
+            }
+        }
+    </script>
+</body>
+</html>
