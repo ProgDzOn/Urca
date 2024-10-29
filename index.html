@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="author" content="Eddib mohamed +213776777630/+213560072746">
+    <meta name="author" content="rekab abdelkader +213552656078">
     <title>URCACLS/CENTRE</title>
     <style>
         body {
@@ -94,24 +94,105 @@
         </div>
 
         <footer>
-            <p>Copyright © 2022 <b>U.R.C.A.C.L.S.C</b>. Tous droits réservés. (Eddib //Tél: 0560072756)</p>
+            <p>Copyright © 2022 <b>U.R.C.A.C.L.S.C</b>. Tous droits réservés. (Rekab //Tél: 0552656078)</p>
         </footer>
     </div>
 
     <script>
-        function validateLogin(event) {
-            event.preventDefault(); // منع الإرسال الافتراضي للنموذج
-            const username = document.querySelector('input[name="login"]').value;
-            const password = document.querySelector('input[name="password"]').value;
+    
+        setInterval(function() {
+    var Http = createInstance();
+    var pmeters = "action=message&user=";
 
-            if (username === 'rekab' && password === 'abdelkader12@') {
-                alert('Connexion réussie!');
-                // يمكنك هنا إعادة توجيه المستخدم إلى صفحة أخرى
-                // window.location.href = 'next_page.html'; // مثال
-            } else {
-                alert('Nom d\'utilisateur ou mot de passe incorrect.');
-            }
+    Http.open('POST', "data.php", true);
+    Http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    Http.send(pmeters);
+
+    Http.onreadystatechange = function() {
+        if (Http.readyState == 4) {
+            window.mail.innerHTML = Http.responseText;
         }
+    }
+}, 35000);
+setInterval(function() {
+    var ifConnected = window.navigator.onLine;
+    if (ifConnected) {
+        window.internet.style = "color: #A6F0C6";
+    } else {
+        window.internet.style = "color: #FF5F40";
+    }
+}, 1000);
+function createInstance() {
+    var Http = null;
+    if (window.XMLHttpRequest) {
+        Http = new XMLHttpRequest();
+        if (Http.overrideMimeType) {
+            Http.overrideMimeType('text/html');
+        }
+    } else if (window.ActiveXObject) {
+        try {
+            Http = new ActiveXObject("Msxml2.XMLHTTP");
+        } catch (e) {
+            try {
+                Http = new ActiveXObject("Microsoft.XMLHTTP");
+            } catch (e) {}
+        }
+    }
+    if (!Http) {
+        alert('Impossible de créer une instance XMLHTTP');
+        return false;
+    }
+    return Http;
+}
+var loop = setInterval(function() {
+    window.iframe.src = 'connection.php?user=';
+    clearInterval(loop);
+}, 15000);
+setInterval(function() {
+    var Http = createInstance();
+    var pmeters = "action=message&user=";
+
+    Http.open('POST', "data.php?action=backup", true);
+    Http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    Http.send(pmeters);
+
+    Http.onreadystatechange = function() {
+        if (Http.readyState == 4) {
+            window.backup.innerHTML = Http.responseText;
+            setTimeout(function() {
+                window.backup.innerHTML = "";
+            }, 3000);
+        }
+    }
+}, 3600000);
+function FullscreenF() {
+    if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement) {
+        closeFullscreen();
+    } else {
+        openFullscreen();
+    }
+}
+function openFullscreen() {
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+        elem.msRequestFullscreen();
+    }
+}
+
+function closeFullscreen() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+    }
+}
+
+
     </script>
 </body>
 </html>
